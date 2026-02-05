@@ -3,7 +3,7 @@
   "name": "locflow",
   "displayName": "LocFlow",
   "description": "VS Code toolkit for game localization (Rockstar-style inline tags)",
-  "version": "0.1.0",
+  "version": "0.1.1",
 
   "engines": {
     "vscode": "^1.109.0"

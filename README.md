@@ -4,6 +4,36 @@
 *Insert tags with one click, switch between raw/normalized profiles,
 and see the real in-game character count.*
 
+## Screenshots
+
+### Context menu
+
+Right-click integration for quick access to LocFlow actions.
+
+![Context menu](images/context-menu.png)
+
+---
+
+### Apply color tag on selected text
+
+#### Before
+
+Selected text without any inline color tags.
+
+![Before](images/apply-color-before.png)
+
+#### After (Raw profile)
+
+Color tag applied using **raw** Rockstar-style tags.
+
+![After – Raw](images/apply-color-after-raw.png)
+
+#### After (Normalized profile)
+
+Color tag applied using **normalized** inline tags.
+
+![After – Normalized](images/apply-color-after-normalized.png)
+
 VS Code extension for game localization:
 
 - inline tag highlighting

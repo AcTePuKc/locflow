@@ -2,6 +2,11 @@
 
 All notable changes to the **LocFlow** extension will be documented in this file.
 
+## [0.1.1] - Screenshot Service
+
+- Added screenshots demonstrating context menu and raw/normalized profiles
+- Improved README preview section
+
 ## [0.1.0] - Initial Release
 
 - **Smart Tag Profiles**: Toggle between `Raw` and `Normalized` tag sets via status bar or shortcut.
