@@ -1,0 +1,175 @@
+{
+  "name": "locflow",
+  "displayName": "LocFlow",
+  "description": "VS Code toolkit for game localization (Rockstar-style inline tags)",
+  "version": "0.1.0",
+
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+
+  "icon": "images/icon.png",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AcTePuKc/locflow"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "keybindings": [
+      {
+        "command": "tagButtons.toggleProfile",
+        "key": "ctrl+alt+p",
+        "when": "editorTextFocus && resourceExtname == .tsv"
+      },
+      {
+        "command": "tagButtons.insertTagMenu",
+        "key": "ctrl+alt+t",
+        "when": "editorTextFocus && resourceExtname == .tsv"
+      },
+      {
+        "command": "tagButtons.insertNewline",
+        "key": "ctrl+alt+enter",
+        "when": "editorTextFocus && resourceExtname == .tsv"
+      }
+    ],
+    "commands": [
+      {
+        "command": "tagButtons.insertTagMenu",
+        "title": "Tags: Show Menu"
+      },
+      {
+        "command": "tagButtons.toggleProfile",
+        "title": "Tags: Toggle Profile"
+      },
+      {
+        "command": "tagButtons.insertNewline",
+        "title": "Tag: Insert Newline"
+      },
+      {
+        "command": "tagButtons.insertColorWhite",
+        "title": "White / Reset"
+      },
+      {
+        "command": "tagButtons.insertColorRed",
+        "title": "Red"
+      },
+      {
+        "command": "tagButtons.insertColorGreen",
+        "title": "Green"
+      },
+      {
+        "command": "tagButtons.insertColorBlue",
+        "title": "Blue"
+      },
+      {
+        "command": "tagButtons.insertColorYellow",
+        "title": "Yellow"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "tagButtons.colorSubmenu",
+        "label": "Insert Color Tag..."
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "tagButtons.insertNewline",
+          "when": "resourceExtname == .tsv",
+          "group": "tagButtons@1"
+        },
+        {
+          "submenu": "tagButtons.colorSubmenu",
+          "when": "resourceExtname == .tsv",
+          "group": "tagButtons@1"
+        },
+        {
+          "command": "tagButtons.insertTagMenu",
+          "when": "resourceExtname == .tsv",
+          "group": "tagButtons@2"
+        },
+        {
+          "command": "tagButtons.toggleProfile",
+          "when": "resourceExtname == .tsv",
+          "group": "tagButtons@2"
+        }
+      ],
+      "tagButtons.colorSubmenu": [
+        {
+          "command": "tagButtons.insertColorWhite"
+        },
+        {
+          "command": "tagButtons.insertColorRed"
+        },
+        {
+          "command": "tagButtons.insertColorGreen"
+        },
+        {
+          "command": "tagButtons.insertColorBlue"
+        },
+        {
+          "command": "tagButtons.insertColorYellow"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Tag Buttons",
+      "properties": {
+        "tagButtons.profile": {
+          "type": "string",
+          "enum": [
+            "raw",
+            "normalized"
+          ],
+          "default": "raw"
+        },
+        "tagButtons.profiles": {
+          "type": "object",
+          "default": {
+            "raw": {
+              "newline": "[NEWLINE]",
+              "colors": {
+                "white": "[COLOR_WHITE]",
+                "red": "[COLOR_RED]",
+                "green": "[COLOR_GREEN]",
+                "blue": "[COLOR_BLUE]",
+                "yellow": "[COLOR_YELLOW]"
+              }
+            },
+            "normalized": {
+              "newline": "~n~",
+              "colors": {
+                "white": "~s~",
+                "red": "~r~",
+                "green": "~g~",
+                "blue": "~b~",
+                "yellow": "~y~"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.109.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.54.0",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
