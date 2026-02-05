@@ -1,4 +1,5 @@
 {
+  "publisher": "AcTePuKc",
   "name": "locflow",
   "displayName": "LocFlow",
   "description": "VS Code toolkit for game localization (Rockstar-style inline tags)",
